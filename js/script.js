@@ -25,7 +25,7 @@ function handleSymbol(symbol) {
       }
       flushOperation(parseInt(buffer));
       previousOperator = null;
-      buffer = runningTotal;
+      buffer = runningTotal.toString(); // Оновити buffer значенням runningTotal
       runningTotal = 0;
       break;
     case '←':
@@ -58,7 +58,8 @@ function handleMath(symbol) {
   }
 
   previousOperator = symbol;
-  buffer = '0';
+  buffer = '';
+  screen.innerText = runningTotal.toString();
 }
 
 function flushOperation(intBuffer) {
