@@ -25,7 +25,7 @@ function handleSymbol(symbol) {
       }
       flushOperation(parseInt(buffer));
       previousOperator = null;
-      buffer = runningTotal;
+      buffer = runningTotal.toString();
       runningTotal = 0;
       break;
     case '←':
@@ -56,8 +56,10 @@ function handleMath(symbol) {
   } else {
     flushOperation(intBuffer);
   }
+
   previousOperator = symbol;
-  buffer = '0';
+  buffer = ' ';
+  screen.innerText = runningTotal.toString();
 }
 
 function flushOperation(intBuffer) {
