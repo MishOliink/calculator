@@ -10,7 +10,10 @@ function buttonClick(value) {
   } else {
     handleNumber(value);
   }
-  screen.innerText = buffer;
+
+  if (buffer !== '') {
+    screen.innerText = buffer;
+  }
 }
 
 function handleSymbol(symbol) {
@@ -25,7 +28,7 @@ function handleSymbol(symbol) {
       }
       flushOperation(parseInt(buffer));
       previousOperator = null;
-      buffer = runningTotal.toString(); // Оновити buffer значенням runningTotal
+      buffer = runningTotal.toString();
       runningTotal = 0;
       break;
     case '←':
